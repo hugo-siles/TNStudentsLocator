@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.thinknear.tnstudentlocator.Utils;
+package com.thinknear.studentlocator.utils;
 
-import com.thinknear.tnstudentlocator.Utils.Utils;
-import com.thinknear.tnstudentlocator.model.GeoObject;
-import com.thinknear.tnstudentlocator.model.SquareClassroom;
-import com.thinknear.tnstudentlocator.model.Student;
+import com.thinknear.studentlocator.utils.Utils;
+import com.thinknear.studentlocator.model.GeoPosition;
+import com.thinknear.studentlocator.model.SquareClassroom;
+import com.thinknear.studentlocator.model.Student;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -26,15 +26,15 @@ public class UtilsTest {
     public void testGetDistance_CheckForRightDistances() {
         System.out.println("testGetDistance_CheckForRightDistances");
         
-        GeoObject engineeringClassroom = new SquareClassroom("engineeringClassroom", 34.069140, -118.442689);
-        GeoObject geologyClassroom = new SquareClassroom("geologyClassroom", 34.069585, -118.441878);
-        GeoObject psychologyClassroom = new SquareClassroom("psychologyClassroom", 34.069742, -118.441312);
-        GeoObject musicClassroom = new SquareClassroom("musicClassroom", 34.070223, -118.440193);
-        GeoObject humanitiesClassroom = new SquareClassroom("humanitiesClassroom", 34.071528, -118.441211);
+        GeoPosition engineeringClassroom = new SquareClassroom("engineeringClassroom", 34.069140, -118.442689);
+        GeoPosition geologyClassroom = new SquareClassroom("geologyClassroom", 34.069585, -118.441878);
+        GeoPosition psychologyClassroom = new SquareClassroom("psychologyClassroom", 34.069742, -118.441312);
+        GeoPosition musicClassroom = new SquareClassroom("musicClassroom", 34.070223, -118.440193);
+        GeoPosition humanitiesClassroom = new SquareClassroom("humanitiesClassroom", 34.071528, -118.441211);
         
-        GeoObject john = new Student("john", 34.069149, -118.442639 ); //engineering
-        GeoObject jane = new Student("jane", 34.069601, -118.441862);  //geology
-        GeoObject pam = new Student("pam", 34.071513, -118.441181);    //humanities
+        GeoPosition john = new Student("john", 34.069149, -118.442639 ); //engineering
+        GeoPosition jane = new Student("jane", 34.069601, -118.441862);  //geology
+        GeoPosition pam = new Student("pam", 34.071513, -118.441181);    //humanities
         
         double sameDistane = Utils.getDistance(engineeringClassroom, engineeringClassroom);
         assertEquals(0.0, sameDistane, 0.0);

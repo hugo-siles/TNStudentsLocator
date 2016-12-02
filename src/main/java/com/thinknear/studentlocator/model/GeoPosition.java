@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.thinknear.tnstudentlocator.model;
+package com.thinknear.studentlocator.model;
 
 /**
  *
  * @author hugo.siles
  */
-public abstract class GeoObject {
+public class GeoPosition {
     
     private final double latitude;
     private final double longitude;
 
-    public GeoObject(double latitude, double longitude) {
+    public GeoPosition(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -44,7 +44,7 @@ public abstract class GeoObject {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final GeoObject other = (GeoObject) obj;
+        final GeoPosition other = (GeoPosition) obj;
         if (Double.doubleToLongBits(this.latitude) != Double.doubleToLongBits(other.latitude)) {
             return false;
         }

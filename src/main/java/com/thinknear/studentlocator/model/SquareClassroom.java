@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.thinknear.tnstudentlocator.model;
+package com.thinknear.studentlocator.model;
+
+import com.thinknear.studentlocator.utils.Utils;
 
 /**
  *
  * @author hugo.siles
  */
-public class SquareClassroom extends GeoObject{
+public class SquareClassroom extends GeoPosition{
     
     private static final int ROOM_SIDE_IN_MTS = 20; //assume fix size for all the rooms
     private static final int HALF_SIDE_IN_MTS = ROOM_SIDE_IN_MTS / 2; //We assume that the coordinates of the room are exactly in the middle 
-    private static final double HYPOTENUSE = HALF_SIDE_IN_MTS*HALF_SIDE_IN_MTS + HALF_SIDE_IN_MTS*HALF_SIDE_IN_MTS;
-    private static final double DISTANCE_TO_CORNER = Math.sqrt(HYPOTENUSE);
     
     private final String name;
 
@@ -31,8 +31,15 @@ public class SquareClassroom extends GeoObject{
     public double getDistanceToSide(){
         return HALF_SIDE_IN_MTS; 
     }
+   
     
-    public double getDistanceToCorner(){
-        return  DISTANCE_TO_CORNER;
+    public BoxCoordinates getCornersCoordinates(){
+        
+        GeoPosition nwCoordinate = Utils.calculateDeltaPosition(this, HALF_SIDE_IN_MTS, -HALF_SIDE_IN_MTS);      
+        GeoPosition seCoordinate = Utils.calculateDeltaPosition(this, -HALF_SIDE_IN_MTS, HALF_SIDE_IN_MTS);
+               
+        return new BoxCoordinates(nwCoordinate, seCoordinate);
+        
+        
     }
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.thinknear.tnstudentlocator.model;
+package com.thinknear.studentlocator.model;
 
 import java.util.Objects;
 
@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author hugo.siles
  */
-public class Student extends GeoObject{
+public class Student extends GeoPosition{
     
     private final String name;
 
